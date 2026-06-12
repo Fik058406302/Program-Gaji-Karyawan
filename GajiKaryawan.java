@@ -20,17 +20,17 @@ public class GajiKaryawan {
             int[] gajiPokokArray = {5000000, 6500000, 9500000};
             int[] persenLembur = {30, 32, 34, 36, 38};
 
-            // 1. Input Nama Karyawan
+            // Input Nama Karyawan
             while (true) {
                 System.out.print("Masukkan Nama Karyawan : ");
                 nama = sc.nextLine().trim().toUpperCase();
                 if (!nama.isEmpty()) {
-                    break; // Keluar loop jika nama tidak kosong
+                    break;
                 }
                 System.out.println("Nama tidak boleh kosong!\n");
             }
 
-            // 2. Input Golongan (Loop hingga valid)
+            // Input Golongan Karyawan
             while (true) {
                 System.out.print("Masukkan Golongan (A/B/C) : ");
                 golongan = sc.nextLine().trim().toUpperCase();
@@ -49,20 +49,20 @@ public class GajiKaryawan {
                 }
             }
 
-            // 3. Input Jam Lembur (Loop hingga valid)
+            // Input Jam Lembur
             while (true) {
                 System.out.print("Masukkan Jam Lembur : ");
                 try {
-                    String inputLembur = sc.nextLine().trim(); // Menggunakan nextLine agar buffer Scanner bersih
+                    String inputLembur = sc.nextLine().trim();
                     jamLembur = Integer.parseInt(inputLembur);
                     
                     if (jamLembur < 0) {
                         System.out.println("Jam lembur tidak boleh negatif.\n");
                     } else {
-                        break; // Keluar loop jika angka valid dan tidak negatif
+                        break;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Input tidak valid. Masukkan angka untuk jam lembur.\n");
+                    System.out.println("Input tidak dikenal. Masukkan angka untuk jam lembur.\n");
                 }
             }
 
@@ -91,8 +91,8 @@ public class GajiKaryawan {
             nf.setMaximumFractionDigits(0);
 
             // Output Slip Gaji
-            System.out.println("\nPT MENCARI CINTA SEJATI");
-            System.out.println("========== SLIP GAJI KARYAWAN =============");
+            System.out.println("\n        PT MENCARI CINTA SEJATI");
+            System.out.println("==========SLIP GAJI KARYAWAN==========");
             System.out.println("NAMA                : " + nama);
             System.out.println("GOLONGAN KARYAWAN   : " + golongan);
             System.out.println("TOTAL GAJI POKOK    : " + nf.format(gajiPokok));
@@ -100,7 +100,7 @@ public class GajiKaryawan {
             System.out.println("TOTAL GAJI LEMBUR   : " + nf.format(gajiLembur) + " (" + (jamLembur > 0 ? persenLembur[indexLembur] : 0) + "% dari gaji pokok)");
             System.out.println("-------------------------------------------");
             System.out.println("TOTAL PENGHASILAN   : " + nf.format(totalPenghasilan));
-            System.out.println("===========================================");
+            System.out.println("======================================");
         }
     }
 }
